@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Data.SqlClient;
 
 namespace Server
 {
@@ -12,8 +13,36 @@ namespace Server
         {
             Executive();
         }
-        private void Authentication()
-        { }
+        private void doEvent(string usernameAndPassword)
+        { 
+            string[] subs = usernameAndPassword.Split(':');
+            switch (subs[0])
+            {
+                // Đăng nhập, nếu thành công thì gửi vault, không thì báo nhập sai
+                case "LOGIN":
+                    Console.WriteLine("LOGIN");
+                    break;
+                // Tạo tài khoản trên hệ thống lưu trữ mật khẩu
+                case "CREATE ACCOUNT":
+                    Console.WriteLine("CREATE ACCOUNT");
+                    break;
+                // Xóa các tài vault, cuối cùng xóa tài khoản.
+                case "DELETE ACCOUNT":
+                    Console.WriteLine("DELETE ACCOUNT");
+                    break ;
+                // Khi thay đổi mật khảu của tài khoản hoặc một vault
+                case "SYNCHRONIZATION":
+                    Console.WriteLine("SYNCHRONIZATION");
+                    break;
+                // Ngắt kết nối
+                case "END CONNECTION":
+                    Console.WriteLine("END CONNECTION");
+                    break;
+                default:
+                    Console.WriteLine("END");
+                    break;
+            }    
+        }
         private static void Executive()
         {
             // create a endpoint
