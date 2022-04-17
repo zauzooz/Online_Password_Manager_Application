@@ -42,18 +42,53 @@ namespace Server
             }                
         }
 
-        private void CREATE_ACCOUNT()
-        { }
+        private void CREATE_ACCOUNT(string[] str)
+        {
+            string username = str[1];
+            string password = str[2];
+            /* Nếu username có trong database:
+                   Yes: phản hồi lại "THE ACCOUNT AREADY EXISTS."
+                   No: 
+                       - lưu tài khoản mới trong database
+                       - gửi phản hồi "CREATE ACCOUNT SUCCESS."
+            */
+            if (true)
+            {
+                streamWriter.WriteLine("THE ACCOUNT AREADY EXISTS.");
+            }
+            else
+            {
 
-        private void DELETE_ACCOUNT()
-        { }
+            }
+        }
+
+        private void DELETE_ACCOUNT(string[] str)
+        {
+            string username = str[1];
+            string password = str[2];
+            /* Nếu username có trong database:
+                   Yes:
+                       - Thực hiện xóa toàn bộ vault thuộc về username cần xóa.
+                       - Thực hiện xóa username và password khỏi database.
+                   No: 
+                       - Phản hồi lại "THE ACCOUNT DOSE NOT EXIST."
+            */
+            if (false)
+            {
+
+            }
+            else
+            {
+                streamWriter.WriteLine("THE ACCOUNT DOSE NOT EXIST.");
+            }
+        }
 
         private void SYNCHRONIZATION()
         { }
 
         private static void END_CONNECTION()
         {
-            
+            streamWriter.WriteLine("END CONNECTION.");
             Close();
         }
 
@@ -101,17 +136,19 @@ namespace Server
             Console.WriteLine("Server started on " + listener.LocalEndpoint);
             Console.WriteLine("Waiting for a connection...");
 
-            clientSocket = listener.AcceptSocket();
-            stream = new NetworkStream(clientSocket);
-            streamReader = new StreamReader(stream);
-            streamWriter = new StreamWriter(stream);
-            streamWriter.AutoFlush = true;
-
             while (true)
             {
-                string cmd = streamReader.ReadLine();
-                doEvent(cmd);
+                clientSocket = listener.AcceptSocket();
+                stream = new NetworkStream(clientSocket);
+                streamReader = new StreamReader(stream);
+                streamWriter = new StreamWriter(stream);
+                streamWriter.AutoFlush = true;
+                while (true)
+                {
+                    string cmd = streamReader.ReadLine();
+                    doEvent(cmd);
+                }
             }    
         }
     }
-}
+} 

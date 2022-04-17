@@ -12,6 +12,18 @@ public class Client
 
     static ASCIIEncoding encoding = new ASCIIEncoding();
 
+    static void Request(Stream stream, string str)
+    {
+        var reader = new StreamReader(stream);
+        var writer = new StreamWriter(stream);
+        writer.AutoFlush = true;
+        // 2. send
+        writer.WriteLine(str);
+        // 3. receive
+        str = reader.ReadLine();
+        Console.WriteLine(str);
+    }
+
     public static void Main()
     {
 
@@ -26,21 +38,10 @@ public class Client
             Console.WriteLine("Connected to Server.");
             while (true)
             {
-                Console.Write("Enter your command: ");
-
-                string str = Console.ReadLine();
-                var reader = new StreamReader(stream);
-                var writer = new StreamWriter(stream);
-                writer.AutoFlush = true;
-
-                // 2. send
-                writer.WriteLine(str);
-
-                // 3. receive
-                str = reader.ReadLine();
-                Console.WriteLine(str);
-                if (str.ToUpper() == "BYE")
-                    break;
+                
+                string str = "END CONNECTION:";
+                Request(stream, str);
+                break;
             }
             // 4. close
             stream.Close();
