@@ -1,115 +1,57 @@
-﻿// A C# program for Client
-using System;
+﻿using System;
+using System.IO;
 using System.Net;
-using System.Net.Sockets;
 using System.Text;
+using System.Net.Sockets;
 
-namespace Client
+public class Client
 {
 
-	class Client
-	{
+    private const int BUFFER_SIZE = 1024;
+    private const int PORT_NUMBER = 15000;
 
-		static private IPHostEntry ipHost = null;
-		static private IPAddress ipAddr = null;
-		static private IPEndPoint localEndPoint = null;
-		static private Socket sender = null;
+    static ASCIIEncoding encoding = new ASCIIEncoding();
 
-		// Main Method
-		static void Main(string[] args)
-		{
-			ExecuteClient();
-		}
+    public static void Main()
+    {
 
-		static void EndPoint()
+        try
         {
-			ipHost = Dns.GetHostEntry(Dns.GetHostName());
-			ipAddr = ipHost.AddressList[0];
-			localEndPoint = new IPEndPoint(ipAddr, 15000);
-			sender = new Socket(ipAddr.AddressFamily,
-						SocketType.Stream, ProtocolType.Tcp);
-		}
+            TcpClient client = new TcpClient();
 
-		static void Connect()
+            // 1. connect
+            client.Connect("127.0.0.1", PORT_NUMBER);
+            Stream stream = client.GetStream();
+
+            Console.WriteLine("Connected to Server.");
+            while (true)
+            {
+                Console.Write("Enter your command: ");
+
+                string str = Console.ReadLine();
+                var reader = new StreamReader(stream);
+                var writer = new StreamWriter(stream);
+                writer.AutoFlush = true;
+
+                // 2. send
+                writer.WriteLine(str);
+
+                // 3. receive
+                str = reader.ReadLine();
+                Console.WriteLine(str);
+                if (str.ToUpper() == "BYE")
+                    break;
+            }
+            // 4. close
+            stream.Close();
+            client.Close();
+        }
+
+        catch (Exception ex)
         {
-			sender.Connect(localEndPoint);
-		}
+            Console.WriteLine("Error: " + ex);
+        }
 
-		static void Send(string msg)
-        {
-			byte[] messageSent = Encoding.ASCII.GetBytes(msg);
-			int byteSent = sender.Send(messageSent);
-		}
-
-		private static string Recieve()
-        {
-			byte[] messageReceived = new byte[1024];
-			string data = null;
-			
-			int byteRecv = sender.Receive(messageReceived);
-			data = Encoding.ASCII.GetString(messageReceived,0,byteRecv);
-
-			return data;
-			
-		}
-
-		private static void Close()
-        {
-			sender.Shutdown(SocketShutdown.Both);
-			sender.Close();
-		}
-
-		// ExecuteClient() Method
-		static void ExecuteClient()
-		{
-			try
-			{
-				EndPoint();
-
-				try
-				{
-
-					Connect();	
-
-					Console.WriteLine("Socket connected to -> {0} ",
-								sender.RemoteEndPoint.ToString());
-
-					Send("LOGIN:user:pass");
-
-					// Data buffer
-					string data = Recieve();
-					Console.WriteLine("Message from Server -> {0}",
-						data);
-
-					Send("END CONNECTION:");
-					Close();
-					
-				}
-
-				// Manage of Socket's Exceptions
-				catch (ArgumentNullException ane)
-				{
-
-					Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
-				}
-
-				catch (SocketException se)
-				{
-
-					Console.WriteLine("SocketException : {0}", se.ToString());
-				}
-
-				catch (Exception e)
-				{
-					Console.WriteLine("Unexpected exception : {0}", e.ToString());
-				}
-			}
-
-			catch (Exception e)
-			{
-
-				Console.WriteLine(e.ToString());
-			}
-		}
-	}
+        Console.Read();
+    }
 }

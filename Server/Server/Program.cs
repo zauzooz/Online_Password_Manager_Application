@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -8,80 +9,18 @@ namespace Server
 {
     class Program
     {
-        // create an endpoint
-        //ipHostEntry = Dns.GetHostEntry(Dns.GetHostName());
-        //ipAddress = ipHostEntry.AddressList[0];
-        //ipEndPoint = new IPEndPoint(ipAddress, 15000);
-        static private IPHostEntry ipHostEntry = null;
         static private IPAddress ipAddress = null;
-        static private IPEndPoint ipEndPoint = null;
-        // create a TCP socket:  listener = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp); 
-        static private Socket listener = null;
-        // accept a connection: clientSocket = listenner.Accept()
+        static private TcpListener listener = null;
         static private Socket clientSocket = null;
-
-        static void EndPoint()
-        {
-            // create an endpoint
-            ipHostEntry = Dns.GetHostEntry(Dns.GetHostName());
-            ipAddress = ipHostEntry.AddressList[0];
-            ipEndPoint = new IPEndPoint(ipAddress, 15000);         
-        }
-
-        static void _Socket()
-        {
-            // creat a TCP socket
-            listener = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-        }
-
-        static void Bind()
-        {
-            // bind the endpoint
-            listener.Bind(ipEndPoint);
-        }
-        
-        static void Listen()
-        {
-            listener.Listen();
-        }
-
-        static void Accept()
-        {
-            clientSocket = null;
-            clientSocket = listener.Accept();
-        }
-
-        static void Send(string msg = "respone") 
-        {
-            byte[] message = Encoding.ASCII.GetBytes(msg);
-            clientSocket.Send(message);
-        }
-
-        static string Recieve()
-        {
-            // data buffer
-            string data = null;
-            byte[] bytes = new byte[1024];
-
-            while (true)
-            {
-                int numByte = clientSocket.Receive(bytes);
-
-                data += Encoding.ASCII.GetString(bytes,
-                                           0, numByte);
-
-                if (data.IndexOf("\0") > -1)
-                    break;
-            }
-
-            return data;
-        }
+        static private NetworkStream stream = null;
+        static private StreamReader streamReader = null;
+        static private StreamWriter streamWriter = null;
 
         static void Close() 
         {
-            clientSocket.Shutdown(SocketShutdown.Both);
+            stream.Close();
             clientSocket.Close();
-            listener.Close();
+            listener.Stop();
         }
 
         static void Main()
@@ -95,11 +34,11 @@ namespace Server
             string password = str[2];
             if(username =="user" && password == "pass")
             {
-                Send("LOGIN SUCCESSFULL:your vault here");
+                streamWriter.WriteLine("LOGIN SUCCESSFULL");
             }
             else
             {
-                Send("Username or password is incorrect.");
+                streamWriter.WriteLine("Username or password is incorrect.");
             }                
         }
 
@@ -114,15 +53,14 @@ namespace Server
 
         private static void END_CONNECTION()
         {
-            Send("Close connection.");
+            
             Close();
         }
 
 
-        static private void doEvent()
+        static private void doEvent(string cmd)
         {
-            string data = Recieve();
-            string[] subs = data.Split(':');
+            string[] subs = cmd.Split(":");
             switch (subs[0])
             {
                 // Đăng nhập, nếu thành công thì gửi vault, không thì báo nhập sai
@@ -148,26 +86,31 @@ namespace Server
                     END_CONNECTION();
                     break;
                 default:
-                    Console.WriteLine("END");
+                    //Console.WriteLine("END");
                     break;
             }    
         }
 
         private static void Executive()
-        {
+        {  
+            ipAddress = IPAddress.Parse("127.0.0.1");
+            listener = new TcpListener(ipAddress, 15000);
+            // 1 listen
+            listener.Start();
 
-            EndPoint();
+            Console.WriteLine("Server started on " + listener.LocalEndpoint);
+            Console.WriteLine("Waiting for a connection...");
 
-            _Socket();
-
-            Bind();
-
-            Listen();
+            clientSocket = listener.AcceptSocket();
+            stream = new NetworkStream(clientSocket);
+            streamReader = new StreamReader(stream);
+            streamWriter = new StreamWriter(stream);
+            streamWriter.AutoFlush = true;
 
             while (true)
-            { 
-                Accept();
-                doEvent();
+            {
+                string cmd = streamReader.ReadLine();
+                doEvent(cmd);
             }    
         }
     }
