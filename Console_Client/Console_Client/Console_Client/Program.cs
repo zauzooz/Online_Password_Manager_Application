@@ -32,14 +32,17 @@ public class Client
             TcpClient client = new TcpClient();
 
             // 1. connect
+            Console.WriteLine("Connect to the server ...");
             client.Connect("127.0.0.1", PORT_NUMBER);
             Stream stream = client.GetStream();
 
             Console.WriteLine("Connected to Server.");
             while (true)
             {
-                
-                string str = "END CONNECTION:";
+                string str = "LOGIN:user:pass";
+                Request(stream, str);
+
+                str = "END CONNECTION:";
                 Request(stream, str);
                 break;
             }

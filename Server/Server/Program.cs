@@ -20,7 +20,6 @@ namespace Server
         {
             stream.Close();
             clientSocket.Close();
-            listener.Stop();
         }
 
         static void Main()
@@ -30,6 +29,11 @@ namespace Server
 
         static private void LOGIN(string[] str)
         {
+            /*
+             * Kiểm tra có người nào đang đăng nhập tài khoản này không?
+             *  - YES: gửi lại thông báo tài khoản đang được dùng 
+             *  - NO: thực hiện đăng nhập, gửi là thông điệp đăng nhập thành công và gửi vault
+             */
             string username = str[1];
             string password = str[2];
             if(username =="user" && password == "pass")
@@ -111,17 +115,16 @@ namespace Server
                 case "DELETE ACCOUNT":
                     Console.WriteLine("DELETE ACCOUNT");
                     break ;
-                // Khi thay đổi mật khảu của tài khoản hoặc một vault
+                // Khi thay đổi mật khảu của tài khoản hoặc một vault.
                 case "SYNCHRONIZATION":
                     Console.WriteLine("SYNCHRONIZATION");
                     break;
-                // Ngắt kết nối
+                // Ngắt kết nối.
                 case "END CONNECTION":
                     Console.WriteLine("END CONNECTION");
                     END_CONNECTION();
                     break;
                 default:
-                    //Console.WriteLine("END");
                     break;
             }    
         }
@@ -130,23 +133,38 @@ namespace Server
         {  
             ipAddress = IPAddress.Parse("127.0.0.1");
             listener = new TcpListener(ipAddress, 15000);
-            // 1 listen
-            listener.Start();
-
-            Console.WriteLine("Server started on " + listener.LocalEndpoint);
-            Console.WriteLine("Waiting for a connection...");
-
+            
             while (true)
             {
-                clientSocket = listener.AcceptSocket();
-                stream = new NetworkStream(clientSocket);
-                streamReader = new StreamReader(stream);
-                streamWriter = new StreamWriter(stream);
-                streamWriter.AutoFlush = true;
+                /*
+                 1. Bắt đầu lắng nghe một kết nối đến.
+                 */
+                listener.Start();
+
+                Console.WriteLine("Server started on " + listener.LocalEndpoint);
+                Console.WriteLine("Waiting for a connection...");
+
                 while (true)
                 {
-                    string cmd = streamReader.ReadLine();
-                    doEvent(cmd);
+                    /*
+                     2. Chấp nhận một kết nối từ Client
+                     */
+                    clientSocket = listener.AcceptSocket();
+                    stream = new NetworkStream(clientSocket);
+                    streamReader = new StreamReader(stream);
+                    streamWriter = new StreamWriter(stream);
+                    streamWriter.AutoFlush = true;
+
+                    /*
+                     3. Kiểm tra kết nối đến client vẫn tồn tại hay không:
+                        YES: Tiếp tục xử lý các request từ client đó
+                        NO: Chờ một kết nối mới
+                     */
+                    while (clientSocket.Connected)
+                    {
+                        string cmd = streamReader.ReadLine();
+                        doEvent(cmd);
+                    }
                 }
             }    
         }
