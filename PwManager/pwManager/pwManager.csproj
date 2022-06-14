@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{12DE1699-390F-46A8-9C4E-5F4BB69AE047}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>pwManager</RootNamespace>
+    <AssemblyName>pwManager</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="account.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="account.Designer.cs">
+      <DependentUpon>account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Create.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Create.Designer.cs">
+      <DependentUpon>Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forgot_password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forgot_password.designer.cs">
+      <DependentUpon>Forgot_password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="home.Designer.cs">
+      <DependentUpon>home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginMsPw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginMsPw.designer.cs">
+      <DependentUpon>LoginMsPw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="pw.Designer.cs">
+      <DependentUpon>pw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resetpassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resetpassword.designer.cs">
+      <DependentUpon>Resetpassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUp.designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="account.resx">
+      <DependentUpon>account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create.resx">
+      <DependentUpon>Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forgot_password.resx">
+      <DependentUpon>Forgot_password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="home.resx">
+      <DependentUpon>home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginMsPw.resx">
+      <DependentUpon>LoginMsPw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="pw.resx">
+      <DependentUpon>pw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resetpassword.resx">
+      <DependentUpon>Resetpassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\282108841_1664863047224911_8333736356655271621_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-facebook-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gmail-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-facebook-messenger-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-zalo-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-youtube-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-double-left-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\280932346_407754631225305_2352177184858265782_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\281396890_308377101483575_8577709331288968811_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\259390847_2964650720455445_5633401746013943908_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\283513108_558654555913055_3601192219442731041_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-google-web-search-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-browser-full-size-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-browser-full-size-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-browser-full-size-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-browser-full-size-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\259390847_2964650720455445_5633401746013943908_n1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\283513108_558654555913055_3601192219442731041_n1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-microsoft-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-github-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-twitter-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-instagram-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-netflix-desktop-app-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ebay-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dropbox-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-microsoft-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-microsoft-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dropbox-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-amazon-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-spotify,-music-and-podcasts-from-record-labels-and-media-companies-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-tiktok-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-lazada-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-shopee-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3c8e42e8-e733-4206-8692-d0aaf8488244.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-welcome-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\99b1d7fb-f862-4a6a-80c4-74c0acff0c0d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\39093e4b-0ff6-4643-b698-67d9f16f2d72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\09940fcb-7ca8-41e8-bbbe-4bb981de7bb7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-maximize-button-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-maximize-button-28 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subtract-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-restore-down-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-restore-down-28 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-maximize-button-28 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-zalo-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-yahoo!-web-services-logotype-with-y-alphabet-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x512x512.772799f75cf289a2d08c4992453976a9.ai.1.png.pagespeed.ic.XsVQ7xkt-S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-acb-inkythuatso-10-10-28-43.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\280932346_407754631225305_2352177184858265782_n1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-secure-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remove-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-property-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-copy-28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-copy-281.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-property-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed-1 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uwc1625303270 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whatsapp-logo-11609382462j9mnjxtikl %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whatsapp-logo-11609382462j9mnjxtikl %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\call-social-viber-video-icon-7 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Discord-New-Logo %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Linkedin-Logo %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %282%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-wordpress-computer-icons-logo-5b0a12cf9a76a9.7667646415273868316327 %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WordPress_blue_logo.svg %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-more-info-50.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

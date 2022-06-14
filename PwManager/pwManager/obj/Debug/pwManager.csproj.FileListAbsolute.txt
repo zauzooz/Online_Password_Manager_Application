@@ -1,0 +1,53 @@
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\bin\Debug\pwManager.exe.config
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\bin\Debug\pwManager.exe
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\bin\Debug\pwManager.pdb
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.Properties.Resources.resources
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.csproj.GenerateResource.cache
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.csproj.CoreCompileInputs.cache
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.exe
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.pdb
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.account.resources
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.pw.resources
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.home.resources
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.Create.resources
+E:\PwManager\pwManager\bin\Debug\pwManager.exe.config
+E:\PwManager\pwManager\bin\Debug\pwManager.exe
+E:\PwManager\pwManager\bin\Debug\pwManager.pdb
+E:\PwManager\pwManager\obj\Debug\pwManager.account.resources
+E:\PwManager\pwManager\obj\Debug\pwManager.Create.resources
+E:\PwManager\pwManager\obj\Debug\pwManager.Form1.resources
+E:\PwManager\pwManager\obj\Debug\pwManager.home.resources
+E:\PwManager\pwManager\obj\Debug\pwManager.Properties.Resources.resources
+E:\PwManager\pwManager\obj\Debug\pwManager.pw.resources
+E:\PwManager\pwManager\obj\Debug\pwManager.csproj.GenerateResource.cache
+E:\PwManager\pwManager\obj\Debug\pwManager.csproj.CoreCompileInputs.cache
+E:\PwManager\pwManager\obj\Debug\pwManager.exe
+E:\PwManager\pwManager\obj\Debug\pwManager.pdb
+E:\PwManager\pwManager\obj\Debug\pwManager.Forgot_password.resources
+E:\PwManager\pwManager\obj\Debug\pwManager.LoginMsPw.resources
+E:\PwManager\pwManager\obj\Debug\pwManager.Resetpassword.resources
+E:\PwManager\pwManager\obj\Debug\pwManager.SignUp.resources
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.Forgot_password.resources
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.Main.resources
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.LoginMsPw.resources
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.Resetpassword.resources
+D:\Nam2_HK2\Lập trình mạng căn bản - NT106.M21.ANTT\Đồ_án\PwManager\pwManager\obj\Debug\pwManager.SignUp.resources
+D:\Online Password Manager Application\PwManager\pwManager\bin\Debug\pwManager.exe.config
+D:\Online Password Manager Application\PwManager\pwManager\bin\Debug\pwManager.exe
+D:\Online Password Manager Application\PwManager\pwManager\bin\Debug\pwManager.pdb
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.csproj.SuggestedBindingRedirects.cache
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.account.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.Create.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.Forgot_password.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.Main.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.home.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.LoginMsPw.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.Properties.Resources.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.pw.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.Resetpassword.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.SignUp.resources
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.csproj.GenerateResource.cache
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.csproj.CoreCompileInputs.cache
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.exe
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.pdb
+D:\Online Password Manager Application\PwManager\pwManager\obj\Debug\pwManager.csproj.AssemblyReference.cache

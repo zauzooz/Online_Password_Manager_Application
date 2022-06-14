@@ -1,0 +1,31 @@
+Facebook-https://facebook.com
+Gmail-https://mail.google.com
+Messenger-https://messenger.com
+Zalo-https://chat.zalo.me/
+Courses-https://courses.uit.edu.vn
+YouTube-https://youtube.com
+Twitter-https://twitter.com
+Instagram-https://instagram.com
+NetFlix-https://netflix.com
+GitHub-https://github.com
+Microsoft-https://microsoft.com
+eBay-https://ebay.com
+DropBox-https://dropbox.com
+Amazon-https://amazon.com
+Spotify-https://spotify.com
+Lazada-https://lazada.vn
+TikTok-https://tiktok.com
+Shopee-https://shopee.vn
+Vietcombank-https://vcbdigibank.vietcombank.com.vn
+BIDV Bank-https://smartbanking.bidv.com.vn
+A Chau Bank-https://online.acb.com.vn
+Yahoo-https://login.yahoo.com
+TP Bank-https://ebank.tpb.vn
+Tiki-https://tiki.vn
+WhatsApp-https://web.whatsapp.com
+Viber-https://account.viber.com/vi/login
+Weverse-https://weverse.io
+Discord-https://discord.com/
+Linkedin-https://linkedin.com/login
+SnapChat-https://accounts.snapchat.com/accounts/login
+WordPress-https://wordpress.com/login
