@@ -46,6 +46,8 @@ namespace pwManager
             this.buttonShow = new System.Windows.Forms.Button();
             this.buttonHind = new System.Windows.Forms.Button();
             this.buttonHind1 = new System.Windows.Forms.Button();
+            this.buttonRandom = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,11 +55,13 @@ namespace pwManager
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(209, 423);
+            this.buttonCreate.FlatAppearance.BorderSize = 0;
+            this.buttonCreate.Location = new System.Drawing.Point(358, 421);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(133, 57);
             this.buttonCreate.TabIndex = 0;
             this.buttonCreate.Text = "Create";
+            this.toolTip1.SetToolTip(this.buttonCreate, "Create");
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
@@ -66,7 +70,7 @@ namespace pwManager
             this.labelapp.AutoSize = true;
             this.labelapp.Location = new System.Drawing.Point(130, 70);
             this.labelapp.Name = "labelapp";
-            this.labelapp.Size = new System.Drawing.Size(96, 32);
+            this.labelapp.Size = new System.Drawing.Size(95, 32);
             this.labelapp.TabIndex = 1;
             this.labelapp.Text = "New app";
             this.labelapp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -76,7 +80,7 @@ namespace pwManager
             this.labelUser.AutoSize = true;
             this.labelUser.Location = new System.Drawing.Point(35, 176);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(109, 32);
+            this.labelUser.Size = new System.Drawing.Size(108, 32);
             this.labelUser.TabIndex = 2;
             this.labelUser.Text = "Username";
             this.labelUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -86,7 +90,7 @@ namespace pwManager
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(40, 256);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 32);
+            this.label3.Size = new System.Drawing.Size(103, 32);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -131,7 +135,7 @@ namespace pwManager
             this.labelconfirm.AutoSize = true;
             this.labelconfirm.Location = new System.Drawing.Point(53, 332);
             this.labelconfirm.Name = "labelconfirm";
-            this.labelconfirm.Size = new System.Drawing.Size(91, 32);
+            this.labelconfirm.Size = new System.Drawing.Size(90, 32);
             this.labelconfirm.TabIndex = 11;
             this.labelconfirm.Text = "Confirm";
             this.labelconfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -165,6 +169,7 @@ namespace pwManager
             this.pictureBox1.Size = new System.Drawing.Size(105, 97);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // buttonShow1
             // 
@@ -178,7 +183,7 @@ namespace pwManager
             this.buttonShow1.Size = new System.Drawing.Size(34, 41);
             this.buttonShow1.TabIndex = 13;
             this.buttonShow1.UseVisualStyleBackColor = false;
-            this.buttonShow1.Click += new System.EventHandler(this.buttonShow1_Click);
+            this.buttonShow1.Click += new System.EventHandler(this.buttonShow_Click);
             // 
             // buttonShow
             // 
@@ -220,13 +225,25 @@ namespace pwManager
             this.buttonHind1.Size = new System.Drawing.Size(34, 41);
             this.buttonHind1.TabIndex = 14;
             this.buttonHind1.UseVisualStyleBackColor = false;
-            this.buttonHind1.Click += new System.EventHandler(this.buttonHind1_Click);
+            this.buttonHind1.Click += new System.EventHandler(this.buttonHind_Click);
+            // 
+            // buttonRandom
+            // 
+            this.buttonRandom.Location = new System.Drawing.Point(41, 421);
+            this.buttonRandom.Name = "buttonRandom";
+            this.buttonRandom.Size = new System.Drawing.Size(213, 57);
+            this.buttonRandom.TabIndex = 16;
+            this.buttonRandom.Text = "Random password";
+            this.toolTip1.SetToolTip(this.buttonRandom, "Random strong password");
+            this.buttonRandom.UseVisualStyleBackColor = true;
+            this.buttonRandom.Click += new System.EventHandler(this.buttonRandom_Click);
             // 
             // Create
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Controls.Add(this.buttonRandom);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonShow1);
             this.Controls.Add(this.labelconfirm);
@@ -273,5 +290,7 @@ namespace pwManager
         private System.Windows.Forms.Button buttonShow1;
         private System.Windows.Forms.Button buttonHind1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button buttonRandom;
     }
 }

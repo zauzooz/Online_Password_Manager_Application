@@ -31,10 +31,13 @@ namespace pwManager
         {
             this.components = new System.ComponentModel.Container();
             this.panelLeft = new System.Windows.Forms.Panel();
-            this.buttonCreate = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonAccount = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonCreate = new System.Windows.Forms.Button();
+            this.buttonLogout = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.panelApps = new System.Windows.Forms.Panel();
             this.buttonWordPress = new System.Windows.Forms.Button();
@@ -78,6 +81,8 @@ namespace pwManager
             this.toolTipHome = new System.Windows.Forms.ToolTip(this.components);
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelSearch.SuspendLayout();
             this.panelApps.SuspendLayout();
             this.panelTop.SuspendLayout();
@@ -86,29 +91,26 @@ namespace pwManager
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panelLeft.Controls.Add(this.buttonCreate);
+            this.panelLeft.Controls.Add(this.pictureBox1);
             this.panelLeft.Controls.Add(this.buttonAccount);
             this.panelLeft.Controls.Add(this.buttonHome);
-            this.panelLeft.Controls.Add(this.pictureBox1);
+            this.panelLeft.Controls.Add(this.panel2);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(94, 623);
             this.panelLeft.TabIndex = 0;
             // 
-            // buttonCreate
+            // pictureBox1
             // 
-            this.buttonCreate.FlatAppearance.BorderSize = 0;
-            this.buttonCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreate.Image = global::pwManager.Properties.Resources.icons8_add_50;
-            this.buttonCreate.Location = new System.Drawing.Point(3, 315);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(88, 72);
-            this.buttonCreate.TabIndex = 3;
-            this.toolTipHome.SetToolTip(this.buttonCreate, "Create");
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.pictureBox1.Image = global::pwManager.Properties.Resources._282108841_1664863047224911_8333736356655271621_n;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(84, 69);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // buttonAccount
             // 
@@ -138,15 +140,55 @@ namespace pwManager
             this.buttonHome.UseVisualStyleBackColor = true;
             this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
-            // pictureBox1
+            // panel2
             // 
-            this.pictureBox1.Image = global::pwManager.Properties.Resources._282108841_1664863047224911_8333736356655271621_n;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(84, 69);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel2.Controls.Add(this.buttonCreate);
+            this.panel2.Controls.Add(this.buttonLogout);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(94, 623);
+            this.panel2.TabIndex = 4;
+            // 
+            // buttonCreate
+            // 
+            this.buttonCreate.FlatAppearance.BorderSize = 0;
+            this.buttonCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreate.Image = global::pwManager.Properties.Resources.icons8_add_50;
+            this.buttonCreate.Location = new System.Drawing.Point(2, 315);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(88, 72);
+            this.buttonCreate.TabIndex = 3;
+            this.toolTipHome.SetToolTip(this.buttonCreate, "Create");
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
+            // buttonLogout
+            // 
+            this.buttonLogout.FlatAppearance.BorderSize = 0;
+            this.buttonLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogout.Image = global::pwManager.Properties.Resources.icons8_logout_501;
+            this.buttonLogout.Location = new System.Drawing.Point(3, 551);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(88, 72);
+            this.buttonLogout.TabIndex = 2;
+            this.toolTipHome.SetToolTip(this.buttonLogout, "Logout");
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::pwManager.Properties.Resources._282108841_1664863047224911_8333736356655271621_n;
+            this.pictureBox2.Location = new System.Drawing.Point(7, 24);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(84, 69);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // panelSearch
             // 
@@ -736,7 +778,7 @@ namespace pwManager
             "WordPress",
             "WhatsApp",
             "Weverse"});
-            this.textBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBoxSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBoxSearch.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -791,7 +833,7 @@ namespace pwManager
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Image = global::pwManager.Properties.Resources.icons8_close_28;
-            this.buttonClose.Location = new System.Drawing.Point(525, -1);
+            this.buttonClose.Location = new System.Drawing.Point(524, 0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(55, 46);
             this.buttonClose.TabIndex = 4;
@@ -840,6 +882,8 @@ namespace pwManager
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
             this.panelApps.ResumeLayout(false);
@@ -897,6 +941,9 @@ namespace pwManager
         private System.Windows.Forms.Button buttonLinkedin;
         private System.Windows.Forms.Button buttonSnapChat;
         private System.Windows.Forms.Button buttonWordPress;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }
 

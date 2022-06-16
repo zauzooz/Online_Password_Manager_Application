@@ -27,5 +27,5 @@ Viber-https://account.viber.com/vi/login
 Weverse-https://weverse.io
 Discord-https://discord.com/
 Linkedin-https://linkedin.com/login
-SnapChat-https://accounts.snapchat.com/accounts/login
+SnapChat-https://accounts.snapchat.com
 WordPress-https://wordpress.com/login

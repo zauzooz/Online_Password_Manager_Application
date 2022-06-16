@@ -25,7 +25,7 @@ namespace pwManager
             streamWriter = sw;
             InitializeComponent();
         }
-        String randomCode;
+        //String randomCode;
         public static String to;
         public Point mouseLocation;
 

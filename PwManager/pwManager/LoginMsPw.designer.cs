@@ -53,12 +53,13 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(124, 53);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(181, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -77,7 +78,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(43, 277);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -89,7 +90,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuText;
             this.panel1.Location = new System.Drawing.Point(43, 315);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(353, 1);
             this.panel1.TabIndex = 4;
@@ -98,7 +99,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(43, 346);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 31);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -109,7 +110,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.WindowText;
             this.panel2.Location = new System.Drawing.Point(43, 384);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(353, 1);
             this.panel2.TabIndex = 6;
@@ -122,7 +123,7 @@
             this.Login.Font = new System.Drawing.Font("Sitka Display", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Login.Location = new System.Drawing.Point(156, 409);
-            this.Login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Login.Margin = new System.Windows.Forms.Padding(4);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(121, 46);
             this.Login.TabIndex = 7;
@@ -137,7 +138,7 @@
             this.user_name.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_name.ForeColor = System.Drawing.Color.SteelBlue;
             this.user_name.Location = new System.Drawing.Point(84, 279);
-            this.user_name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.user_name.Margin = new System.Windows.Forms.Padding(4);
             this.user_name.Multiline = true;
             this.user_name.Name = "user_name";
             this.user_name.Size = new System.Drawing.Size(312, 33);
@@ -153,7 +154,7 @@
             this.password.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password.ForeColor = System.Drawing.Color.SteelBlue;
             this.password.Location = new System.Drawing.Point(84, 348);
-            this.password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password.Margin = new System.Windows.Forms.Padding(4);
             this.password.Multiline = true;
             this.password.Name = "password";
             this.password.PasswordChar = '*';
@@ -169,7 +170,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(364, 352);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 30);
             this.button1.TabIndex = 10;
@@ -182,7 +183,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.Location = new System.Drawing.Point(364, 352);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 30);
             this.button2.TabIndex = 11;
@@ -197,7 +198,7 @@
             this.forgot_password.Font = new System.Drawing.Font("Sitka Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.forgot_password.ForeColor = System.Drawing.Color.SteelBlue;
             this.forgot_password.Location = new System.Drawing.Point(16, 473);
-            this.forgot_password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.forgot_password.Margin = new System.Windows.Forms.Padding(4);
             this.forgot_password.Name = "forgot_password";
             this.forgot_password.Size = new System.Drawing.Size(221, 46);
             this.forgot_password.TabIndex = 12;
@@ -212,7 +213,7 @@
             this.sign_up.Font = new System.Drawing.Font("Sitka Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sign_up.ForeColor = System.Drawing.Color.SteelBlue;
             this.sign_up.Location = new System.Drawing.Point(296, 473);
-            this.sign_up.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sign_up.Margin = new System.Windows.Forms.Padding(4);
             this.sign_up.Name = "sign_up";
             this.sign_up.Size = new System.Drawing.Size(100, 47);
             this.sign_up.TabIndex = 13;
@@ -227,7 +228,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(400, 15);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(27, 25);
             this.button3.TabIndex = 14;
@@ -255,7 +256,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.password);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginMsPw";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

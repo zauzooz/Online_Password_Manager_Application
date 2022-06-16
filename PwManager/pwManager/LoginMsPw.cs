@@ -70,7 +70,7 @@ namespace pwManager
             switch (vs[1])
             {
                 case "1":
-                    MessageBox.Show("Đăng nhập thành công.");                   
+                    //MessageBox.Show("Đăng nhập thành công.");                   
                     string path = @"D:\Online Password Manager Application\PwManager\pwManager\bin\pw.txt";
                     FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
                     using (StreamWriter writeFile = new StreamWriter(fs))
@@ -88,8 +88,18 @@ namespace pwManager
                     };
                     fs.Close();
                     this.Hide();
-                    Form fm = new Main(socket, streamWriter, streamReader);
+                    Form fm = new Main(socket, streamWriter, streamReader, vs[2], vs[3]);
                     fm.ShowDialog();
+                    try
+                    {
+                        msg = streamReader.ReadLine();
+                        if (msg == "LOGOUT\\1")
+                            this.Show();
+                    }
+                    catch
+                    {
+                        this.Close();
+                    }
                     break;
                 default:
                     MessageBox.Show("Tài khoản hoặc mật khẩu không đúng.");
@@ -119,6 +129,8 @@ namespace pwManager
         // Nhan vao Icon X thoat khoi ung dung
         private void button3_Click(object sender, EventArgs e)
         {
+            streamWriter.WriteLine("CLOSE_CONNECTION\\");
+            socket.Close();
             Application.Exit();
         }
    
@@ -204,6 +216,11 @@ namespace pwManager
         }
 
         private void user_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

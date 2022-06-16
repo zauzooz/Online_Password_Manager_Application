@@ -26,25 +26,32 @@ namespace pwManager
                 return _instance;
             }
         }
-        private void buttonHind_Click(object sender, EventArgs e)
+
+        private string _email;
+        public string Email
         {
-            if (textBoxMstPass.PasswordChar == '\0')
-            {
-                buttonShow.BringToFront();
-                textBoxMstPass.PasswordChar = '*';
-            }
+            set { _email = value; }
         }
 
-        private void buttonShow_Click(object sender, EventArgs e)
+        private string _accountName;
+        public string AccountName
         {
-            if (textBoxMstPass.PasswordChar == '*')
-            {
-                buttonHind.BringToFront();
-                textBoxMstPass.PasswordChar = '\0';
-            }
+            set { _accountName = value; }
         }
+        
 
         private void account_Load(object sender, EventArgs e)
+        {
+            textBoxUser.Text = _accountName;
+            textBox1.Text = _email;
+        }
+
+        private void textBoxUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

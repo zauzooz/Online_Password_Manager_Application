@@ -18,14 +18,18 @@ namespace pwManager
     {
 
         List<Button> buttonApps = null;
+        string userName;
+        string Email;
         Socket socket;
         StreamReader streamReader;
         StreamWriter streamWriter;
-        public Main(Socket soc, StreamWriter sw, StreamReader sr)
+        public Main(Socket soc, StreamWriter sw, StreamReader sr, string usr, string _email)
         {
             socket = soc;
             streamWriter = sw;
             streamReader = sr;
+            userName = usr;
+            Email = _email;
             InitializeComponent();
 
             //danh sách các button ứng dụng
@@ -77,12 +81,15 @@ namespace pwManager
         {
             if (!panelContainer.Controls.Contains(account.Instance))
             {
+                account.Instance.AccountName = userName;
+                account.Instance.Email = Email;
                 panelContainer.Controls.Add(account.Instance);
                 account.Instance.Dock = DockStyle.Fill;
                 account.Instance.BringToFront();
             }
             else
                 account.Instance.BringToFront();
+            account.Instance.AccountName = userName;
         }
         //thêm app mới
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -95,6 +102,10 @@ namespace pwManager
             }
             else
                 Create.Instance.BringToFront();
+            Create.Instance._socket = socket;
+            Create.Instance._streamReader = streamReader;
+            Create.Instance._streamWriter = streamWriter;
+            Create.Instance.UserName = userName;
             Create.newApp.Clear();
             Create.User.Clear();
             Create.Pass.Clear();
@@ -112,7 +123,7 @@ namespace pwManager
             {
                 streamWriter.WriteLine("CLOSE_CONNECTION\\");
                 socket.Close();
-                File.Delete(path);
+                File.WriteAllText(path, "");
                 Application.Exit(); ; //đóng chương trình
             }
         }
@@ -168,7 +179,7 @@ namespace pwManager
             writeFile.WriteLine("Weverse-https://weverse.io");
             writeFile.WriteLine("Discord-https://discord.com/");
             writeFile.WriteLine("Linkedin-https://linkedin.com/login");
-            writeFile.WriteLine("SnapChat-https://accounts.snapchat.com/accounts/login");
+            writeFile.WriteLine("SnapChat-https://accounts.snapchat.com");
             writeFile.WriteLine("WordPress-https://wordpress.com/login");
             writeFile.Flush(); 
             fileStream.Close(); 
@@ -208,17 +219,20 @@ namespace pwManager
                 }
                 else
                     pw.Instance.BringToFront();
+                pw.Instance.socket = socket;
+                pw.Instance.streamReader = streamReader;
+                pw.Instance.streamWriter = streamWriter;
+                pw.Instance.UserName = userName;
                 pw.GetInfo(textBoxSearch.Text);
                 pw.GetNameApp(textBoxSearch.Text);
                 
             }
-            else if (checkApp(textBoxSearch.Text, "..\\URL.txt") == 0)
-            {
-                MessageBox.Show("Sorry, we don't have this app =(((", "", MessageBoxButtons.OK);
-                textBoxSearch.Clear();
-            }
             else
             {
+                if (checkApp(textBoxSearch.Text, "..\\URL.txt") == 0)
+                {
+                    MessageBox.Show("Sorry, we don't have this app =(((", "", MessageBoxButtons.OK);
+                }
                 result = MessageBox.Show("You don't have this account! Want to create?", "", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -230,6 +244,10 @@ namespace pwManager
                     }
                     else
                         Create.Instance.BringToFront();
+                    Create.Instance._socket = socket;
+                    Create.Instance._streamWriter = streamWriter;
+                    Create.Instance._streamReader = streamReader;
+                    Create.Instance.UserName = userName;
                     Create.newApp.Text = textBoxSearch.Text;
                     Create.User.Clear();
                     Create.Pass.Clear();
@@ -271,15 +289,19 @@ namespace pwManager
                 }
                 else
                     pw.Instance.BringToFront();
+                pw.Instance.socket = socket;
+                pw.Instance.streamReader = streamReader;
+                pw.Instance.streamWriter = streamWriter;
+                pw.Instance.UserName = userName;
                 pw.GetInfo(app);
                 pw.GetNameApp(app);
             }
-            else if(checkApp(app,"..\\URL.txt")==0)
-            {
-                MessageBox.Show("Sorry, we don't have this app =(((","",MessageBoxButtons.OK);
-            }    
             else
             {
+                if (checkApp(app, "..\\URL.txt") == 0)
+                {
+                    MessageBox.Show("Sorry, we don't have this app =(((", "", MessageBoxButtons.OK);
+                }
                 result = MessageBox.Show("You don't have this account! Want to create?", "", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -291,6 +313,10 @@ namespace pwManager
                     }
                     else
                         Create.Instance.BringToFront();
+                    Create.Instance._socket = socket;
+                    Create.Instance._streamWriter = streamWriter;
+                    Create.Instance._streamReader = streamReader;
+                    Create.Instance.UserName = userName;
                     Create.newApp.Text = app;
                     Create.User.Clear();
                     Create.Pass.Clear();
@@ -468,6 +494,33 @@ namespace pwManager
         }
 
         private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            streamWriter.WriteLine("LOGOUT\\");
+            File.Delete(@"D:\Online Password Manager Application\PwManager\pwManager\bin\pw.txt");
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }

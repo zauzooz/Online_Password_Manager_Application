@@ -38,7 +38,6 @@ namespace pwManager
             this.textBoxWeb = new System.Windows.Forms.TextBox();
             this.toolTippw = new System.Windows.Forms.ToolTip(this.components);
             this.buttonRemove = new System.Windows.Forms.Button();
-            this.buttonChange = new System.Windows.Forms.Button();
             this.buttonWeb = new System.Windows.Forms.Button();
             this.buttonShow = new System.Windows.Forms.Button();
             this.buttonHind = new System.Windows.Forms.Button();
@@ -53,7 +52,7 @@ namespace pwManager
             this.labelUsername.Location = new System.Drawing.Point(29, 124);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(109, 32);
+            this.labelUsername.Size = new System.Drawing.Size(108, 32);
             this.labelUsername.TabIndex = 0;
             this.labelUsername.Text = "Username";
             this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -64,7 +63,7 @@ namespace pwManager
             this.labelPw.Location = new System.Drawing.Point(34, 209);
             this.labelPw.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPw.Name = "labelPw";
-            this.labelPw.Size = new System.Drawing.Size(104, 32);
+            this.labelPw.Size = new System.Drawing.Size(103, 32);
             this.labelPw.TabIndex = 1;
             this.labelPw.Text = "Password";
             // 
@@ -74,7 +73,7 @@ namespace pwManager
             this.labelWeb.Location = new System.Drawing.Point(51, 302);
             this.labelWeb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWeb.Name = "labelWeb";
-            this.labelWeb.Size = new System.Drawing.Size(87, 32);
+            this.labelWeb.Size = new System.Drawing.Size(86, 32);
             this.labelWeb.TabIndex = 2;
             this.labelWeb.Text = "Website";
             // 
@@ -119,7 +118,7 @@ namespace pwManager
             this.buttonRemove.FlatAppearance.BorderSize = 0;
             this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemove.Image = global::pwManager.Properties.Resources.icons8_delete_30;
-            this.buttonRemove.Location = new System.Drawing.Point(213, 405);
+            this.buttonRemove.Location = new System.Drawing.Point(372, 414);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(167, 60);
             this.buttonRemove.TabIndex = 11;
@@ -128,21 +127,6 @@ namespace pwManager
             this.toolTippw.SetToolTip(this.buttonRemove, "Remove this account");
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
-            // 
-            // buttonChange
-            // 
-            this.buttonChange.FlatAppearance.BorderSize = 0;
-            this.buttonChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonChange.Image = global::pwManager.Properties.Resources.icons8_edit_30;
-            this.buttonChange.Location = new System.Drawing.Point(23, 405);
-            this.buttonChange.Name = "buttonChange";
-            this.buttonChange.Size = new System.Drawing.Size(167, 60);
-            this.buttonChange.TabIndex = 10;
-            this.buttonChange.Text = "Change";
-            this.buttonChange.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTippw.SetToolTip(this.buttonChange, "Change username or password");
-            this.buttonChange.UseVisualStyleBackColor = true;
-            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // buttonWeb
             // 
@@ -192,10 +176,10 @@ namespace pwManager
             // pictureBox2
             // 
             this.pictureBox2.Image = global::pwManager.Properties.Resources._280932346_407754631225305_2352177184858265782_n1;
-            this.pictureBox2.Location = new System.Drawing.Point(442, 386);
+            this.pictureBox2.Location = new System.Drawing.Point(67, 388);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.Size = new System.Drawing.Size(101, 101);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
@@ -208,6 +192,7 @@ namespace pwManager
             this.labelApp.Size = new System.Drawing.Size(98, 48);
             this.labelApp.TabIndex = 12;
             this.labelApp.Text = "label1";
+            this.labelApp.Click += new System.EventHandler(this.labelApp_Click_1);
             // 
             // pw
             // 
@@ -216,7 +201,6 @@ namespace pwManager
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.labelApp);
             this.Controls.Add(this.buttonRemove);
-            this.Controls.Add(this.buttonChange);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.buttonWeb);
             this.Controls.Add(this.textBoxWeb);
@@ -251,7 +235,6 @@ namespace pwManager
         private System.Windows.Forms.Button buttonShow;
         private System.Windows.Forms.Button buttonWeb;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button buttonChange;
         private System.Windows.Forms.ToolTip toolTippw;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Label labelApp;

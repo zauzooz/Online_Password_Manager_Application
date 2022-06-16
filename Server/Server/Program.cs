@@ -238,6 +238,38 @@ namespace Server
             }
             return true;
         }
+        private static bool REMOVE_ACCOUNT(string user, string content)
+        {
+            string path = String.Format(@"D:\Password_Management\{0}\pw.txt", user);
+            string str = "";
+            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            {
+                StreamReader read = new StreamReader(fs);
+                while (true)
+                {
+                    string line = read.ReadLine();
+                    if (line == null)
+                        break;
+                    if (line == content)
+                        continue;
+                    else
+                        str += line + Environment.NewLine;
+                }
+                
+                fs.Close();
+            }
+            File.Delete(path);
+            File.WriteAllText(path, "");
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                StreamWriter write = new StreamWriter(fs);
+                write.Write(str);
+                write.Flush();
+                fs.Close();
+            }
+
+            return true;
+        }
         private static void DoEvent(Socket socket, string msg)
         {
             string[] ev = msg.Split('\\');
@@ -256,10 +288,22 @@ namespace Server
                     // 
                     if (LOGIN(ev[1], ev[2]))
                     {
-                        // send LOGIN\\1 to client - login successful.
+                        // send LOGIN\\1\\userName\\Email to client - login successful.
                         // send content of D:/Password_Management/<UserName>/vault.txt to the user
-                        Console.WriteLine("Login successfull.");
-                        Send(socket, "LOGIN\\1");
+                        string UserName = ev[1];
+                        string Email = "";
+                        SqlConnection conn = new SqlConnection(ConnectionString);
+                        conn.Open();
+                        string query = String.Format(
+                            "SELECT UserName, Email FROM dbo.LoginTable " +
+                             "WHERE UserName='{0}'", UserName);
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.Read())
+                            Email = reader.GetString(0);
+                        conn.Close();
+                        string send = String.Format(@"LOGIN\1\{0}\{1}", UserName, Email);
+                        Send(socket, send);
                         string path = String.Format(@"D:\Password_Management\{0}\pw.txt", ev[1]);
                         FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
                         using (StreamReader readFile = new StreamReader(fs))
@@ -287,7 +331,7 @@ namespace Server
                     // do something -> LOGOUT\\username
                     // log to log.txt
                     // remove socket in list
-
+                    Send(socket, "LOGOUT\\1");
                     break;
                 case "CREATE_ACCOUNT":
                     // do something -> CREATE_ACCOUT\\UserName\\Pasword\\Email
@@ -347,7 +391,7 @@ namespace Server
                 case "DELETE_ACCOUNT":
                     // do something -> DELETE\\username\\password
                     // log to log.txt
-
+                    
                     /*
                      * if delete:
                      *     T: 
@@ -463,6 +507,30 @@ namespace Server
                         Send(socket, "FORGOT_PASSWORD\\0");
                     }
 
+                    break;
+
+                case "ADD_NEW":
+                    // do something->ADD_NEW\\username\\conent
+                    string _path = String.Format(@"D:\Password_Management\{0}\pw.txt", ev[1]);
+                    string content = ev[2];
+                    Console.WriteLine(content);
+                    FileStream fileStream = new FileStream(_path, FileMode.Append, FileAccess.Write);
+                    StreamWriter writeFile = new StreamWriter(fileStream);
+                    writeFile.Write(content + Environment.NewLine);
+                    writeFile.Close();
+                    fileStream.Close();
+                    Send(socket, "ADD_NEW\\1");
+                    break;
+                case "REMOVE_ACCOUNT":
+                    // do something -> REMOVE_ACCOUNT\userName\content
+                    if (REMOVE_ACCOUNT(ev[1], ev[2]))
+                    {
+                        Send(socket, @"REMOVE_ACCOUNT\1");
+                    }
+                    else
+                    {
+                        Send(socket, @"REMOVE_ACCOUNT\0");
+                    }    
                     break;
                 case "CLOSE_CONNECTION":
                     socket.Close();
